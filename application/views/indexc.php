@@ -174,7 +174,7 @@
                 </div>
                 
 				<div class="col-md-5">
-					<img alt="Heroimage" src="<?php print_r($res1[4]->img_path) ?>" width="450" height="250">
+					<img alt="Heroimage" src="<?php if(!empty($res1)){ print_r($res1[4]->img_path);} ?>" width="450" height="250">
 				</div>
 				<div class="col-md-7">
 					<div class="row">
@@ -282,16 +282,16 @@
 				<div class="col-md-12">
 					<div class="row">
 						<div class="col-md-3">
-							<a href=""><img alt="Bootstrap Image Preview" src="<?php print_r($res1[0]->img_path) ?>" height="250" width="250"></a>
+							<a href=""><img alt="Image1" src="<?php if(!empty($res1)) print_r($res1[0]->img_path); ?>" height="250" width="250"></a>
 						</div>
 						<div class="col-md-3">
-                            <a href=""><img alt="Bootstrap Image Preview" src="<?php print_r($res1[1]->img_path) ?>"  height="250" width="250"></a>
+                            <a href=""><img alt="Image2" src="<?php if(!empty($res1)) print_r($res1[1]->img_path); ?>"  height="250" width="250"></a>
 						</div>
 						<div class="col-md-3">
-                            <a href=""><img alt="Bootstrap Image Preview" src="<?php print_r($res1[2]->img_path) ?>"  height="250" width="250"></a>
+                            <a href=""><img alt="Image3" src="<?php if(!empty($res1)) print_r($res1[2]->img_path); ?>"  height="250" width="250"></a>
 						</div>
 						<div class="col-md-3">
-                            <a href=""><img alt="Bootstrap Image Preview" src="<?php print_r($res1[3]->img_path) ?>"  height="250" width="250"></a>
+                            <a href=""><img alt="Image4" src="<?php if(!empty($res1)) print_r($res1[3]->img_path); ?>"  height="250" width="250"></a>
 						</div>
 					</div>
 				</div>
