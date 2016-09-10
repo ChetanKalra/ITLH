@@ -9,23 +9,28 @@ class Sitedetails extends CI_Model
                 parent::__construct();
         }
     
-  /*  function getmodeldetails(){
+  function getmodeldetails($id){
     
 
-        $this->db->select('name,price,quantity,description');
+        /* $this->db->select('name,price,quantity,description');
          $this->db->from('products');
          $this->db->where('id', $id);
          $query = $this->db->get(''); 
         
         
          //print_r($query->result_array());exit;
-         return $query->result(); 
+         return $query->result(); */
         
-        $query= $this->db->query("select  p.name,p.price,p.quantity,p.description,i.img_path from products p inner join product_images i on p.id=i.Product_id where id= "$id");
+        $query= $this->db->query("select name,price,quantity,description from products where id= $id");
         //print_r($query->result_array());exit;
         return $query->result();
         
- } */
+ }
+	function getmodelImages($id){
+		$query= $this->db->query("select img_path from product_Images where Product_id= $id");
+        //print_r($query->result_array());exit;
+        return $query->result();
+	}
     
     function getProductdetails($page){
         
@@ -80,10 +85,21 @@ class Sitedetails extends CI_Model
     
     function Editproductdetails($did)
     {
-        $query= $this->db->query("select name, price, quantity, description from products where id=$did");
+        $query= $this->db->query("select name, price, quantity, description, id from products where id=$did");
        // print_r($query->result_array());exit;
         return $query->result();
     }
+	
+	function AddProduct($a,$b,$c,$d,$e)
+	{
+		
+		$query= $this->db->query("insert into products(name,quantity,price,category_id,description,Image) Values('$a',$b,$c,$d,'$e',2)");
+	}
+	
+	function Update($a,$b,$c,$d,$e,$id)
+	{
+		$query= $this->db->query("update products set name='$a',quantity=$b, price=$c, category_id=$d, description='$e' where id=$id");	
+	}
 }
 
 ?>

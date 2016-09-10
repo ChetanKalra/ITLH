@@ -39,12 +39,14 @@ class productdetails extends CI_Controller {
     {
         $this->load->model('sitedetails');
         $res=$this->sitedetails->getmodeldetails($id);
+		$res1=$this->sitedetails->getmodelImages($id);
         
           $data=array(
         
-            'res'=> $res 
+            'res'=> $res,
+			'res1'=> $res1
         );
-        //print_r($res[0]->name);exit;
+        //print_r($data);exit;
         $this->load->view('indexc',$data);
     }
     
@@ -117,10 +119,11 @@ class productdetails extends CI_Controller {
     public function deleteproduct($did)
     {
         $this->load->model('sitedetails');
-        echo $did;
-        exit;
+        //echo $did;
+        //exit;
         $this->sitedetails->deleteproduct($did);
         //redirect('../../../../../ProductListing/Mobiles/1');
+		redirect('../../../../../../pagination_controller/getdetails/');
     }
     
      public function Editpage($did)
@@ -161,5 +164,39 @@ class productdetails extends CI_Controller {
     {
         $this->load->view('productAdd');
     }
+	public function add()
+	{
+		$Name= $this->input->post("name");
+		$Quantity= $this->input->post("quantity");
+		$Price= $this->input->post("price");
+		$Category= $this->input->post("category");
+		$Description= $this->input->post("description");
+		$this->load->model('sitedetails');
+		//echo $Name;echo $Quantity;echo $Price;echo $Category;echo $Description;
+		//exit;
+		$this->sitedetails->AddProduct($Name,$Quantity,$Price,$Category,$Description);
+		redirect('../../../../../pagination_controller/getdetails/');
+		
+		
+	}
+	
+	public function Edit($id)
+	{
+		$Name= $this->input->post("name");
+		$Quantity= $this->input->post("quantity");
+		$Price= $this->input->post("price");
+		$Category= $this->input->post("category");
+		$Description= $this->input->post("description");
+		$this->load->model('sitedetails');
+		//echo $Name. "<br>";echo $Quantity. "<br>";echo $Price. "<br>";echo $Category. "<br>";echo $Description. "<br>";echo $id;
+		//exit;
+		$this->sitedetails->Update($Name,$Quantity,$Price,$Category,$Description,$id);
+		redirect('../../../../../../pagination_controller/getdetails/');
+		
+		
+	}
+	
+	
+
 }
 

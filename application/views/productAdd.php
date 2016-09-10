@@ -6,14 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="../../../public/js/script.js"></script>
-    <title>Add Products</title>
+    <title>Add Product</title>
 
     <meta name="description" content="Source code generated using layoutit.com">
     <meta name="author" content="LayoutIt!">
 
     <link href="../../../public/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../../public/css/style1.css" rel="stylesheet" type="text/css">
+    <link href="../../../public/css/style.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
 	  
+	 <style>
+	 
+		 .form-group{
+			 
+			 padding: 1.5em;
+		 }
+	  
+		 .bdr{
+			 
+			 border: 1px solid;
+			 margin-left: 0.5em;
+			 margin-right: 0.5em;
+		 }
+	 </style> 
   </head>
   <body>
 
@@ -25,12 +40,12 @@
 					A Big Title <small></small>
 				</h1>
 			</div>
-				<nav class="navbar navbar-default navbar-inverse" role="navigation">
+			<nav class="navbar navbar-default navbar-inverse" role="navigation">
 				<div class="navbar-header">
 					 
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 						 <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-					</button> <a class="navbar-brand" href="#">Dashboard</a>
+					</button> <a class="navbar-brand" href="../../dashboard/admin">Dashboard</a>
 				</div>
 				
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -109,46 +124,47 @@
 					<a href="http://localhost/Ecommerce_S/index.php/pagination_controller/getdetails/">Products</a> <span class="divider">/</span>
 				</li>
 				<li class="active">
-					Add Products
+					Edit Products
 				
 				</li>
 			</ul>
+			
 			<div class="row">
 				<div class="col-md-12">
 				
 						
-							<form enctype="multipart/form-data" action="" method="post">
+							<form enctype="multipart/form-data" action="../../productdetails/add" method="post">
 							<div class="col-md-6">	
 								<div class="form-group">
 									 <label class="col-md-5 control-label" for="text-field">Product Name</label>
 											<div class="col-md-7">
-												<input class="form-control" type="text" value="">
+												<input class="form-control" type="text" name="name">
 											</div>
 									
 								</div>
 								<div class="form-group">
 									 <label class="col-md-5 control-label" for="text-field">Quantity in Stock</label>
 											<div class="col-md-7">
-												<input class="form-control" placeholder="" type="text" value="">
+												<input class="form-control" placeholder="" type="text" name="quantity">
 											</div>
 
 								</div>
 								<div class="form-group">
 									<label class="col-md-5 control-label" for="text-field">Price per Unit</label>
 											<div class="col-md-7">
-												<input class="form-control" placeholder="" type="text" value="">
+												<input class="form-control" placeholder="" type="text" name="price">
 											</div>
 								</div>
 								<div class="form-group">
 											<label class="col-md-5 control-label" for="select-1">Categories</label>
 											<div class="col-md-7">
 			
-												<select class="form-control" id="select-1">
-													<option>Mobiles</option>
-													<option>Tablets</option>
-													<option>Laptops</option>
-													<option>Motherboards</option>
-													<option>Processors</option>
+												<select class="form-control" id="select-1" name="category">
+													<option value="1">Mobiles</option>
+													<option value="2">Tablets</option>
+													<option value="3">Laptops</option>
+													<option value="4">Motherboards</option>
+													<option value="5">Processors</option>
 												</select> 
 			
 											</div>
@@ -156,20 +172,19 @@
 								<div class="form-group">
 											<label class="col-md-5 control-label" for="textarea">Description</label>
 											<div class="col-md-7">
-												<textarea class="form-control" rows="4"></textarea>
+												<textarea class="form-control" rows="4" name="description"></textarea>
 											</div>
 								</div>
 							</div>
 						
 								<div class="col-md-6">
-									<label class="col-md-3 control-label" for="text-field">Images</label>
+									<!--<label class="col-md-3 control-label" for="text-field">Images</label>-->
 									<div class="col-md-6">
                             
-									<div id="filediv"><input name="file[]" type="file" id="file"/></div><br/>
+										<!--<div id="filediv"><input name="file[]" type="file" id="file"/></div><br/>
 									
-										<input type="button" id="add_more" class="upload" value="Add More Files"/></div>
-									<!--<div class="col-md-3">
-										<input type="submit" value="Upload File" name="submit" id="upload" class="upload"/></div>-->
+										<input type="button" id="add_more" class="upload" value="Add More Files"/>--></div>
+									
 							
 							<br/>
 				<!-------Including PHP Script here------>
@@ -179,10 +194,10 @@
 								
 								<div class="form-group">
 									<div class="col-sm-offset-3 col-sm-9">
-										<br/><br/><br/>
+										
 						
-										<button type="submit" class="btn btn-default">Add Products</button>
-										<button type="reset" class="btn btn-default">Cancel</button>
+										<input type="submit" class="btn btn-default" value="Add Product">
+										<button type="reset" class="btn btn-default">Clear</button>
 								    </div>
 									
 								</div>

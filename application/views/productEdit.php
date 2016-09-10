@@ -45,7 +45,7 @@
 					 
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 						 <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-					</button> <a class="navbar-brand" href="#">Dashboard</a>
+					</button> <a class="navbar-brand" href="../../dashboard/admin">Dashboard</a>
 				</div>
 				
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -133,38 +133,38 @@
 				<div class="col-md-12">
 				
 						
-							<form enctype="multipart/form-data" action="" method="post">
+							<form enctype="multipart/form-data" action="../../productdetails/Edit/<?php echo $res[0]->id ?>" method="post">
 							<div class="col-md-6">	
 								<div class="form-group">
 									 <label class="col-md-5 control-label" for="text-field">Product Name</label>
 											<div class="col-md-7">
-												<input class="form-control" type="text" value="<?php echo $res[0]->name ?>">
+												<input class="form-control" type="text" value="<?php echo $res[0]->name ?>" name="name">
 											</div>
 									
 								</div>
 								<div class="form-group">
 									 <label class="col-md-5 control-label" for="text-field">Quantity in Stock</label>
 											<div class="col-md-7">
-												<input class="form-control" placeholder="" type="text" value="<?php echo $res[0]->quantity ?>">
+												<input class="form-control" placeholder="" type="text" value="<?php echo $res[0]->quantity ?>" name="quantity">
 											</div>
 
 								</div>
 								<div class="form-group">
 									<label class="col-md-5 control-label" for="text-field">Price per Unit</label>
 											<div class="col-md-7">
-												<input class="form-control" placeholder="" type="text" value="<?php echo $res[0]->price ?>">
+												<input class="form-control" placeholder="" type="text" value="<?php echo $res[0]->price ?>" name="price">
 											</div>
 								</div>
 								<div class="form-group">
 											<label class="col-md-5 control-label" for="select-1">Categories</label>
 											<div class="col-md-7">
 			
-												<select class="form-control" id="select-1">
-													<option>Mobiles</option>
-													<option>Tablets</option>
-													<option>Laptops</option>
-													<option>Motherboards</option>
-													<option>Processors</option>
+												<select class="form-control" id="select-1" name="category">
+													<option value="1">Mobiles</option>
+													<option value="2">Tablets</option>
+													<option value="3">Laptops</option>
+													<option value="4">Motherboards</option>
+													<option value="5">Processors</option>
 												</select> 
 			
 											</div>
@@ -172,20 +172,21 @@
 								<div class="form-group">
 											<label class="col-md-5 control-label" for="textarea">Description</label>
 											<div class="col-md-7">
-												<textarea class="form-control" rows="4"><?php echo $res[0]->description ?></textarea>
+												<textarea class="form-control" rows="4" name="description"><?php echo $res[0]->description?></textarea>
 											</div>
 								</div>
 							</div>
 						
 								<div class="col-md-6">
-									<label class="col-md-3 control-label" for="text-field">Images</label>
+									<!--<label class="col-md-3 control-label" for="text-field">Images</label>-->
 									<div class="col-md-6">
                             
-									<div id="filediv"><input name="file[]" type="file" id="file"/></div><br/>
+										<!--<div id="filediv"><input name="file[]" type="file" id="file"/></div><br/>
 									
-										<input type="button" id="add_more" class="upload" value="Add More Files"/></div>
-									<!--<div class="col-md-3">
-										<input type="submit" value="Upload File" name="submit" id="upload" class="upload"/></div>-->
+										<input type="button" id="add_more" class="upload" value="Add More Files"/>--></div>
+										
+										
+									
 							
 							<br/>
 				<!-------Including PHP Script here------>
@@ -195,10 +196,10 @@
 								
 								<div class="form-group">
 									<div class="col-sm-offset-3 col-sm-9">
-										<br/><br/><br/>
+										
 						
-										<button type="submit" class="btn btn-default">Add Products</button>
-										<button type="reset" class="btn btn-default">Cancel</button>
+										<button type="submit" class="btn btn-default">Update</button>
+										<button type="reset" class="btn btn-default">Clear</button>
 								    </div>
 									
 								</div>
